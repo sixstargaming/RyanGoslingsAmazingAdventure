@@ -3,6 +3,7 @@
 
 #include "Root.h"
 #include <KinematicBody2D.hpp>
+#include <Camera2D.hpp>
 #include <Input.hpp>
 
 namespace godot {
@@ -11,6 +12,7 @@ namespace godot {
 	private:
 		Vector2 motion;
 	public:
+		Camera2D* pCamera;
 		const int SPEED = 300;
 
 		static void _register_methods();

@@ -1,6 +1,8 @@
 #include "Root.h"
 #include "Player.h"
-#include <gdnative_api_struct.gen.h>
+#include "Door.h"
+#include "WinScreen.h"
+// #include <gdnative_api_struct.gen.h>  // Not needed?
 
 // DO NOT use namesapce godot here
 
@@ -16,4 +18,6 @@ extern "C" void GDN_EXPORT godot_nativescript_init(void *handle) {
 	godot::Godot::nativescript_init(handle);
 	godot::register_class<godot::Player>();
 	godot::register_class<godot::Root>();
+	godot::register_class<godot::Door>();
+	godot::register_class<godot::WinScreen>();
 }

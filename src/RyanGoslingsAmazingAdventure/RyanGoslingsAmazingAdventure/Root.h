@@ -4,11 +4,14 @@
 // Godot includes
 #include <core/Godot.hpp>
 #include <Node2D.hpp>
+#include <Input.hpp>
 #include <InputEvent.hpp>
-#include <InputEvent.hpp>
-#include <InputEventAction.hpp>
+#include <InputEventKey.hpp>
+//#include <InputEventAction.hpp>
 #include <InputEventMouseButton.hpp>
+#include <SceneTree.hpp>
 #include <GlobalConstants.hpp>
+#include <CanvasItem.hpp>
 
 // stdio
 #include <stdio.h>
@@ -22,18 +25,24 @@ namespace godot {
 		GODOT_CLASS(Root, Node2D)
 	private:
 	public:
-		static Node2D* pInnerWallContainerNode;
 		static Player* pPlayer;
+		static Node2D* pCereals;
+		static CanvasItem* pCanvas;
+
+		Node2D* pExit;
 
 		static void _register_methods();
+
+		void _init();
+		void _ready();
 
 		Root();
 		~Root();
 
 		//void _init(); // Initializer called by Godot
 
-		void HandleInputEvent(Variant v);
-		void ProcessMWheel(InputEventMouseButton* e);
+		void _input(InputEvent* e);
+		void ProcessMouseWheel(InputEventMouseButton* e);
 	};
 }
 
